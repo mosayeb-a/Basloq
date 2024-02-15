@@ -29,7 +29,7 @@ class QuoteRepositoryImpl(
     override suspend fun getQuote(quoteId: String): Quote =
         quoteRemoteDataSource.getQuote(quoteId)
 
-    override suspend fun getFavoriteProduct(): List<Quote> {
+    override suspend fun getFavoriteQuotes(): List<Quote> {
         TODO("Not yet implemented")
     }
 
