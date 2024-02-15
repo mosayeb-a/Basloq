@@ -17,7 +17,7 @@ interface QuoteRepository {
 
     suspend fun getQuote(quoteId: String): Quote
 
-    suspend fun getFavoriteQuote(): List<Quote>
+    suspend fun getFavoriteQuotes(): List<Quote>
 
     suspend fun addToFavorite(quote: Quote): Boolean
 
