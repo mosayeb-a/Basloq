@@ -18,7 +18,7 @@ interface QuoteDataSource {
 
     suspend fun getQuote(quoteId: String): Quote
 
-    suspend fun getFavoriteProduct(): List<Quote>
+    suspend fun getFavoriteQuotes(): List<Quote>
 
     suspend fun addToFavorite(quote: Quote): Boolean
 
