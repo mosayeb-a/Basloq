@@ -11,7 +11,7 @@ basloq is an open source program that allows you to express your thoughts in the
   currently these feature implemented in the android platform.
 
 ## Usage 
-The app uses faqvs api. to run this project you need to generate your api key and put it to this variable:
+The app uses faqvs api. to run this project you need to generate an api key and put it to this variable:
 const val API_KEY = "" .
 
 Favqs : https://favqs.com/api
