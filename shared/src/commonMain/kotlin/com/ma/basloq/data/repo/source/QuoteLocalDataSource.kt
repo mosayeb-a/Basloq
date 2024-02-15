@@ -5,7 +5,7 @@ import com.ma.basloq.data.model.Quotes
 
 class QuoteLocalDataSource : QuoteDataSource  {
 
-    override suspend fun getFavoriteProduct(): List<Quote> {
+    override suspend fun getFavoriteQuotes(): List<Quote> {
         TODO("Not yet implemented")
     }
 
