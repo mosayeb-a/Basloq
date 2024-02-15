@@ -105,7 +105,7 @@ android {
 
 //sqldelight {
 //    database("BasloqDatabase") {
-//        packageName = "dev.amal.translator_kmm.database"
+//        packageName = "com.ma.basloq.database"
 //        sourceFolders = listOf("sqldelight")
 //    }
 //}
