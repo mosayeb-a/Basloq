@@ -4,7 +4,7 @@ basloq is an open source program that allows you to express your thoughts in the
 ## Technologies
 - Technologies implemented so far are:
   - Ktor client to make http requests
-  - Preferences to stor key-value data. 
+  - Preferences(It's different on every platform) to stor key-value data. 
   - Custom Exception handling
   - managing states in the android side
 
