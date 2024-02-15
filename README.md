@@ -1,5 +1,5 @@
 # Basloq 
-basloq is an open source program that allows you to express your thoughts in the form of quotes. The project is currently under development.
+basloq is a kotlin multi-platform project that allows you to express your thoughts in the form of quotes. The project is currently under development.
 
 ## Technologies
 - Technologies implemented so far are:
