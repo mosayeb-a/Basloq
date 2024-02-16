@@ -1,8 +1,8 @@
 package com.ma.basloq.data.repo.source
 
+import com.ma.basloq.data.model.FilterBy
 import com.ma.basloq.data.model.Quote
 import com.ma.basloq.data.model.Quotes
-import kotlinx.coroutines.flow.Flow
 
 interface QuoteDataSource {
 
@@ -18,9 +18,9 @@ interface QuoteDataSource {
 
     suspend fun getQuote(quoteId: String): Quote
 
-    suspend fun getFavoriteQuotes(): Flow<List<Quote>>
+    suspend fun getFavoriteQuotes(): List<Quote>
 
-    suspend fun addToFavorite(quote: Quote)
+    suspend fun addToFavorite(quote: Quote): Boolean
 
-    suspend fun deleteFromFavorite(quoteId: Int)
+    suspend fun deleteFromFavorite(quote: Quote): Boolean
 }
