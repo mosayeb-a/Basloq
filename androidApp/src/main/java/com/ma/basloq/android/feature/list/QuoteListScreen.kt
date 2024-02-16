@@ -29,8 +29,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 @Composable
 fun QuoteListScreen(
     onQuoteClick: (Int) -> Unit,
-    state: QuoteListState,
+    viewModel: QuoteListViewModel,
 ) {
+    val state = viewModel.state
 
     if (state.error?.type == BasloqException.Type.EMPTY_SCREEN)
         EmptyScreen(
@@ -56,6 +57,13 @@ fun QuoteListScreen(
                             quote = item,
                             onClick = {
                                 onQuoteClick(item.id)
+                                viewModel.addToFavorite(
+                                    id = item.id,
+                                    author = item.author,
+                                    body = item.body,
+                                    tags = item.tags,
+                                    dialogue = item.dialogue
+                                )
                             }
                         )
                     }

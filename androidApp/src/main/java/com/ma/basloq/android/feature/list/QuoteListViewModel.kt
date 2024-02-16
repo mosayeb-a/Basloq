@@ -44,7 +44,47 @@ class QuoteListViewModel @Inject constructor(
                 )
             }
         }
+
+        viewModelScope.launch {
+            val a =quoteRepository.getFavoriteQuotes()
+            a.collect{
+            println("FavoriteQuote: $a")
+            }
+        }
     }
 
+    fun addToFavorite(
+        id: Int,
+        author: String,
+        body: String,
+        tags: List<String>,
+        dialogue: Boolean
+    ) {
+        viewModelScope.launch {
+            try {
+                quoteRepository.addToFavorite(
+                    quote = Quote(
+                        id = id,
+                        author = author,
+                        body = body,
+                        tags = tags,
+                        dialogue = dialogue,
+                        authorPermalink = null,
+                        downvotesCount = null,
+                        favoritesCount = null,
+                        private = null,
+                        upvotesCount = null,
+                        url = null,
+
+                        )
+                )
+            } catch (e: Throwable) {
+                state = state.copy(
+                    error = e as? BasloqException,
+                    isLoading = false
+                )
+            }
+        }
+    }
 }
 

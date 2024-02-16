@@ -2,6 +2,7 @@ package com.ma.basloq.data.repo
 
 import com.ma.basloq.data.model.Quote
 import com.ma.basloq.data.model.Quotes
+import kotlinx.coroutines.flow.Flow
 
 interface QuoteRepository {
 
@@ -17,9 +18,9 @@ interface QuoteRepository {
 
     suspend fun getQuote(quoteId: String): Quote
 
-    suspend fun getFavoriteProduct(): List<Quote>
+    suspend fun getFavoriteQuotes(): Flow<List<Quote>>
 
-    suspend fun addToFavorite(quote: Quote): Boolean
+    suspend fun addToFavorite(quote: Quote)
 
-    suspend fun deleteFromFavorite(quote: Quote): Boolean
+    suspend fun deleteFromFavorite(quoteId: Int)
 }

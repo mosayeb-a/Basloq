@@ -41,7 +41,7 @@ fun Navigation() {
                 onQuoteClick = { quoteId ->
                     navController.navigate(Screen.Detail.route + "/$quoteId")
                 },
-                state = viewModel.state
+                viewModel = viewModel
             )
         }
         composable(

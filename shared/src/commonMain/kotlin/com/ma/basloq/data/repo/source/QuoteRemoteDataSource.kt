@@ -3,6 +3,7 @@ package com.ma.basloq.data.repo.source
 import com.ma.basloq.data.model.Quote
 import com.ma.basloq.data.model.Quotes
 import com.ma.basloq.service.QuoteService
+import kotlinx.coroutines.flow.Flow
 
 class QuoteRemoteDataSource(
     private val quoteService: QuoteService
@@ -28,15 +29,15 @@ class QuoteRemoteDataSource(
     override suspend fun getQuote(quoteId: String): Quote =
         quoteService.getQuote(quoteId)
 
-    override suspend fun getFavoriteProduct(): List<Quote> {
+    override suspend fun getFavoriteQuotes(): Flow<List<Quote>> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun addToFavorite(quote: Quote): Boolean {
+    override suspend fun addToFavorite(quote: Quote) {
         TODO("Not yet implemented")
     }
 
-    override suspend fun deleteFromFavorite(quote: Quote): Boolean {
+    override suspend fun deleteFromFavorite(quoteId: Int) {
         TODO("Not yet implemented")
     }
 }

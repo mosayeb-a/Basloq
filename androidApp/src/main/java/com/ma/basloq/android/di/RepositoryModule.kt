@@ -8,10 +8,13 @@ import com.ma.basloq.data.repo.QuoteRepository
 import com.ma.basloq.data.repo.QuoteRepositoryImpl
 import com.ma.basloq.data.repo.UserRepository
 import com.ma.basloq.data.repo.UserRepositoryImpl
+import com.ma.basloq.data.repo.source.BasloqDatabaseFactory
+import com.ma.basloq.data.repo.source.DatabaseDriverFactory
 import com.ma.basloq.data.repo.source.QuoteLocalDataSource
 import com.ma.basloq.data.repo.source.QuoteRemoteDataSource
 import com.ma.basloq.data.repo.source.UserLocalDataSource
 import com.ma.basloq.data.repo.source.UserRemoteDataSource
+import com.ma.basloq.database.BasloqDatabase
 import com.ma.basloq.service.QuoteService
 import dagger.Module
 import dagger.Provides
@@ -64,10 +67,15 @@ object RepositoryModule {
         )
     }
 
+
     @Provides
     @ViewModelScoped
-    fun provideQuoteLocalDataSource(): QuoteLocalDataSource {
-        return QuoteLocalDataSource()
+    fun provideQuoteLocalDataSource(
+         db : BasloqDatabase
+    ): QuoteLocalDataSource {
+        return QuoteLocalDataSource(
+            db = db
+        )
     }
 
     @Provides
