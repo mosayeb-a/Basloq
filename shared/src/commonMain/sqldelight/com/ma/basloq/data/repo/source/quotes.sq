@@ -1,0 +1,32 @@
+import kotlin.collections.List;
+import kotlin.Boolean;
+import kotlin.String;
+
+CREATE TABLE quotes(
+_id INTEGER NOT NULL PRIMARY KEY,
+ author TEXT NOT NULL ,
+ body TEXT NOT NULL ,
+ tags TEXT AS List<String> NOT NULL,
+ dialog INTEGER AS Boolean NOT NULL
+);
+
+getQuote:
+SELECT *
+FROM quotes
+WHERE _id = ?
+LIMIT 1;
+
+getQuotes:
+SELECT *
+FROM quotes;
+
+deleteQuote:
+DELETE
+FROM quotes
+WHERE _id = ?;
+
+addQuote:
+INSERT INTO
+quotes(_id,author,body,tags,dialog)
+VALUES (?,?,?,?,?);
+
