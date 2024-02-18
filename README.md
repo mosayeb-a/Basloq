@@ -4,7 +4,7 @@ basloq is a kotlin multi-platform project that allows you to express your though
 ## Technologies
 - Technologies implemented so far are:
   - Ktor client to make http requests
-  - Preferences(It's different on every platform) to stor key-value pairs. 
+  - Preferences(It's different on every platform) to store key-value pairs. 
   - Custom Exception handling
   - managing states in the android side
   - sqldelight to caching data
