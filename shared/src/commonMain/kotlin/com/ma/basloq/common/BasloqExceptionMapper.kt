@@ -22,9 +22,25 @@ fun basloqExceptionMapper(
                 // or user exist
                 return BasloqException(
                     type = BasloqException.Type.SIMPLE,
-                    userFriendlyMessage = "Email is not a valid email; Password is too short (minimum is 5 characters)",
+                    userFriendlyMessage = "Email is not a valid email; Password is too short",
                 )
             }
+
+            21 -> return BasloqException(
+                type = BasloqException.Type.SIMPLE,
+                userFriendlyMessage = "Invalid login or password."
+            )
+
+            22 -> return BasloqException(
+                type = BasloqException.Type.SIMPLE,
+                // todo :not found a user with these information
+                userFriendlyMessage = "Login is not active."
+            )
+
+            23 -> return BasloqException(
+                type = BasloqException.Type.SIMPLE,
+                userFriendlyMessage = "User login or password is missing."
+            )
         }
     } else if (exception != null) {
         when (exception) {
@@ -51,7 +67,10 @@ fun handleRequestException(exception: Exception): BasloqException {
     throw basloqExceptionMapper(exception = exception, errorCode = null)
 }
 
-suspend fun handleResponseException(exception: Exception, httpResponse: HttpResponse): BasloqException {
+suspend fun handleResponseException(
+    exception: Exception,
+    httpResponse: HttpResponse
+): BasloqException {
     val errorCode = httpResponse.body<ErrorResponse>().errorCode
     throw basloqExceptionMapper(exception = exception, errorCode = errorCode)
 }

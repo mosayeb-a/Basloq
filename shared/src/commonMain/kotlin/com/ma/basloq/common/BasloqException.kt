@@ -3,7 +3,7 @@ package com.ma.basloq.common
 class BasloqException(
     val type: Type,
     val userFriendlyMessage: String,
-    val serverMessage: String? = null,
+//    val errorCode: Int? = null,
 ) : Throwable() {
 
     enum class Type {

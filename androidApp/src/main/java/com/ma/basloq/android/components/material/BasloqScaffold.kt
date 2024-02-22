@@ -59,7 +59,7 @@ import kotlin.math.max
  */
 @ExperimentalMaterial3Api
 @Composable
-fun Scaffold(
+fun BasloqScaffold(
     modifier: Modifier = Modifier,
     topBarScrollBehavior: TopAppBarScrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(),
     topBar: @Composable (TopAppBarScrollBehavior) -> Unit = {},
@@ -94,15 +94,15 @@ fun Scaffold(
 }
 
 /**
- * Layout for a [Scaffold]'s content.
+ * Layout for a [BasloqScaffold]'s content.
  *
  * @param fabPosition [FabPosition] for the FAB (if present)
- * @param topBar the content to place at the top of the [Scaffold], typically a [SmallTopAppBar]
- * @param content the main 'body' of the [Scaffold]
+ * @param topBar the content to place at the top of the [BasloqScaffold], typically a [SmallTopAppBar]
+ * @param content the main 'body' of the [BasloqScaffold]
  * @param snackbar the [Snackbar] displayed on top of the [content]
  * @param fab the [FloatingActionButton] displayed on top of the [content], below the [snackbar]
  * and above the [bottomBar]
- * @param bottomBar the content to place at the bottom of the [Scaffold], on top of the
+ * @param bottomBar the content to place at the bottom of the [BasloqScaffold], on top of the
  * [content], typically a [NavigationBar].
  */
 @Composable
@@ -200,6 +200,7 @@ private fun ScaffoldLayout(
 
         val snackbarPlaceables = measurables[6]
             .map { it.measure(bottomPlaceablesConstraints) }
+
 
         val snackbarHeight = snackbarPlaceables.maxBy { it.height }?.height ?: 0
         val snackbarWidth = snackbarPlaceables.maxBy { it.width }?.width ?: 0
@@ -314,7 +315,7 @@ private fun ScaffoldLayout(
 }
 
 /**
- * Placement information for a [FloatingActionButton] inside a [Scaffold].
+ * Placement information for a [FloatingActionButton] inside a [BasloqScaffold].
  *
  * @property left the FAB's offset from the left edge of the bottom bar, already adjusted for RTL
  * support

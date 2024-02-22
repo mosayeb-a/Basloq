@@ -1,10 +1,6 @@
 package com.ma.basloq.data.repo.source
 
 import com.ma.basloq.service.UserService
-import com.ma.basloq.common.BasloqException
-import com.ma.basloq.common.Result
-import com.ma.basloq.common.basloqExceptionMapper
-import com.ma.basloq.common.handleRequestException
 import com.ma.basloq.data.model.SessionTokenResponse
 import com.ma.basloq.data.model.UserTokenResponse
 
@@ -26,7 +22,7 @@ class UserRemoteDataSource(
     override suspend fun destroySession(): String =
         userService.logout()
 
-    override fun loadSessionToken() {
+    override fun loadSessionToken(): String? {
         TODO("Not yet implemented")
     }
 
@@ -34,7 +30,7 @@ class UserRemoteDataSource(
         TODO("Not yet implemented")
     }
 
-    override fun loadUserToken() {
+    override fun loadUserToken(): String? {
         TODO("Not yet implemented")
     }
 
