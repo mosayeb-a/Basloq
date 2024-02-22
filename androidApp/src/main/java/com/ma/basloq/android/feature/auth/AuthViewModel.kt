@@ -33,15 +33,10 @@ class AuthViewModel @Inject constructor(
         private set
 
     val isUserAuthenticated: Boolean
-        get() : Boolean {
-            if (
-                !userRepository.loadUserToken().isNullOrEmpty() ||
-                !userRepository.loadSessionToken().isNullOrEmpty()
-            ) {
-                return true
-            }
-            return false
-        }
+        get() : Boolean =
+            !userRepository.loadUserToken().isNullOrEmpty() ||
+                    !userRepository.loadSessionToken().isNullOrEmpty()
+
 
     fun createUser(
         email: String,
