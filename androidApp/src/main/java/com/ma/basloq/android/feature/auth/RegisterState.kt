@@ -4,9 +4,9 @@ import com.ma.basloq.common.BasloqException
 import java.util.regex.Pattern
 
 data class RegisterState(
-    val email: String = "sdfadf@gmial.com",
-    val password: String = "asdfdsfa",
-    val username: String = "asdfadsf",
+    val email: String = "",
+    val password: String = "",
+    val username: String = "",
     val token: String = "",
     val error: BasloqException? = null,
     val isLoading: Boolean = false,

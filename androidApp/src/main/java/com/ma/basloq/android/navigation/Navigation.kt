@@ -1,8 +1,10 @@
 package com.ma.basloq.android.navigation
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -24,6 +26,7 @@ fun Navigation(
 ) {
     val navController = rememberNavController()
     NavHost(
+        modifier = Modifier.fillMaxSize(),
         navController = navController,
         startDestination = Route.Authorization
     ) {
@@ -40,7 +43,10 @@ fun Navigation(
                     viewModel = viewModel,
                     snackbarHostState = snackbarHostState,
                     onNavigateToHome = {
-                        navController.navigate(Route.QuoteList)
+                        navController.navigate(Route.QuoteList) {
+                            popUpTo(route = Route.Authorization)
+                            launchSingleTop = true
+                        }
                     },
                     onNaviagteToRegister = {
                         navController.navigate(Route.Register)
