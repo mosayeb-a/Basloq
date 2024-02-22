@@ -1,6 +1,9 @@
 # Basloq 
 basloq is a kotlin multi-platform project that allows you to express your thoughts in the form of quotes. The project is currently under development.
 
+<img src="https://github.com/mosayeb-a/Basloq/assets/108512702/371956c7-4906-4262-ad5e-e8141ec09fe7" width="230" height="450">
+<img src="https://github.com/mosayeb-a/Basloq/assets/108512702/1b8807ef-d882-4413-b08a-483eb43acb64" width="230" height="450">
+
 ## Technologies
 - Technologies implemented so far are:
   - Ktor client to make http requests
@@ -11,7 +14,7 @@ basloq is a kotlin multi-platform project that allows you to express your though
 
   currently these feature implemented in the android platform.
 
-## Usage 
+## Build 
 The app uses faqvs api. to run this project you need to generate an api key and put it to this variable:
 const val API_KEY = "" .
 
