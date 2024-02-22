@@ -12,7 +12,7 @@ interface UserDataSource {
     ): UserTokenResponse
 
     fun saveUserToken(token: String)
-    fun loadUserToken()
+    fun loadUserToken() : String?
     fun saveUsername(username: String)
     fun getUsername() : String
     fun saveUserPassword(password: String)
@@ -21,6 +21,6 @@ interface UserDataSource {
     suspend fun createSession(username: String, password: String): SessionTokenResponse
     suspend fun destroySession(): String
 
-    fun loadSessionToken()
+    fun loadSessionToken() : String?
     fun saveSessionToken(token: String)
 }

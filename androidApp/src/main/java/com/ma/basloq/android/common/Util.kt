@@ -1,36 +1,22 @@
 package com.ma.basloq.android.common
 
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.material3.LocalContentColor
-import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionContext
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import com.ma.basloq.android.theme.JetchatTheme
 import com.ma.basloq.android.components.material.SecondaryItemAlpha
-import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.contract
+import java.util.regex.Pattern
 
 
 fun Modifier.secondaryItemAlpha(): Modifier = this.alpha(SecondaryItemAlpha)
 
-inline fun ComponentActivity.setComposeContent(
-    parent: CompositionContext? = null,
-    crossinline content: @Composable () -> Unit,
-) {
-    setContent(parent) {
-        JetchatTheme {
-            CompositionLocalProvider(
-                LocalTextStyle provides MaterialTheme.typography.bodySmall,
-                LocalContentColor provides MaterialTheme.colorScheme.onBackground,
-            ) {
-                content()
-            }
-        }
-    }
+
+private val usernameRegex = Pattern.compile("^[a-zA-Z0-9_]{1,20}$")
+
+fun isUsernameFormatCorrect(username: String): Boolean {
+    return usernameRegex.matcher(username).matches()
 }
 
+private val passwordRegex = Pattern.compile("^.{5,120}$")
+
+fun isPasswordFormatCorrect(password: String): Boolean {
+    return passwordRegex.matcher(password).matches()
+}

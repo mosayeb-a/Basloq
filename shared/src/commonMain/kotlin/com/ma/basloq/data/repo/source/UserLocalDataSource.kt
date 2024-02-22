@@ -13,20 +13,16 @@ class UserLocalDataSource(
         preferences.put("user_token", token)
     }
 
-    override fun loadUserToken() {
-        preferences.apply {
-            getString("user_token")
-        }
+    override fun loadUserToken(): String? {
+        return preferences.getString("user_token")
     }
 
     override fun saveSessionToken(token: String) {
-        preferences.apply {
-            put("session_token", token)
-        }
+        preferences.put("session_token", token)
     }
 
-    override fun loadSessionToken() {
-        preferences.getString("session_token")
+    override fun loadSessionToken(): String? {
+        return preferences.getString("session_token")
     }
 
     override fun saveUsername(username: String) {

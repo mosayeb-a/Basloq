@@ -32,7 +32,7 @@ class UserServiceImpl(
     }
 
     override suspend fun login(username: String, password: String): SessionTokenResponse {
-        return httpClient.exceptionAwareRequest("session") {
+         return  httpClient.exceptionAwareRequest("session") {
             method = HttpMethod.Post
             setBody(
                 mapOf(
@@ -43,6 +43,7 @@ class UserServiceImpl(
                 )
             )
         }
+
     }
 
     override suspend fun logout(): String {

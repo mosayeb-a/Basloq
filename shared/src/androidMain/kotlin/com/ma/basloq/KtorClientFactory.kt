@@ -31,7 +31,6 @@ actual class KtorClientFactory {
                     header(HttpHeaders.ContentType, ContentType.Application.Json)
                     header("Authorization", "Token token=$API_KEY")
                 }
-
             }
             install(Logging) {
                 level = LogLevel.ALL

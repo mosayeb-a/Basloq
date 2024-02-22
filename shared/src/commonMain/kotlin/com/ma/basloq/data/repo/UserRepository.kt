@@ -8,10 +8,12 @@ interface UserRepository {
     suspend fun createUser(username: String, email: String, password: String): UserTokenResponse
 
     suspend fun createSession(): SessionTokenResponse
+
+    suspend fun createSession(username: String, password: String) : SessionTokenResponse
     suspend fun destroySession(): String
 
-    fun loadUserToken()
-    fun loadSessionToken()
+    fun loadUserToken() : String?
+    fun loadSessionToken() : String?
 
     fun getUsername() : String
     fun getUserPassword() : String

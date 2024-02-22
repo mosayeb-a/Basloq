@@ -29,6 +29,14 @@ class UserRepositoryImpl(
         return result
     }
 
+    override suspend fun createSession(username: String, password: String): SessionTokenResponse {
+        val result = userRemoteDataSource.createSession(username, password)
+        result.sessionToken?.let { token ->
+            userLocalDataSource.saveSessionToken(token)
+        }
+        return result
+    }
+
     override suspend fun createSession(): SessionTokenResponse {
         val result =
             userRemoteDataSource.createSession(
@@ -44,12 +52,12 @@ class UserRepositoryImpl(
     override suspend fun destroySession(): String =
         userRemoteDataSource.destroySession()
 
-    override fun loadUserToken() {
-        userLocalDataSource.loadUserToken()
+    override fun loadUserToken(): String? {
+        return userLocalDataSource.loadUserToken()
     }
 
-    override fun loadSessionToken() {
-        userLocalDataSource.loadSessionToken()
+    override fun loadSessionToken(): String? {
+        return userLocalDataSource.loadSessionToken()
     }
 
     override fun getUsername(): String =
