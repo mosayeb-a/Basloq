@@ -11,6 +11,7 @@ basloq is a kotlin multi-platform project that allows you to express your though
   - Custom Exception handling
   - managing states in the android side
   - sqldelight to caching data
+  - compose for android ui
 
   currently these feature implemented in the android platform.
 
