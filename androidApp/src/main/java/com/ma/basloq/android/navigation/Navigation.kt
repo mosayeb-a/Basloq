@@ -43,7 +43,10 @@ fun Navigation(
                     viewModel = viewModel,
                     snackbarHostState = snackbarHostState,
                     onNavigateToHome = {
-                        navController.navigate(Route.QuoteList)
+                        navController.navigate(Route.QuoteList) {
+                            popUpTo(route = Route.Authorization)
+                            launchSingleTop = true
+                        }
                     },
                     onNaviagteToRegister = {
                         navController.navigate(Route.Register)
